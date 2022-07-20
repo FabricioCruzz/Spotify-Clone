@@ -13,6 +13,14 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.verificarTokenUrlCallback()
+  }
+
+  verificarTokenUrlCallback() {
+    const token = this.spotifyService.obterTokenUrlCallback()
+    if(!!token) {
+      this.spotifyService.definirAccessToken(token)
+    }
 
   }
 
